@@ -73,8 +73,8 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("😊 About Me", callback_data = "about"),
-                    InlineKeyboardButton("🔒 Close", callback_data = "close")
+                    InlineKeyboardButton("🤖 Info Bot", callback_data = "about"),
+                    InlineKeyboardButton("❌ Close", callback_data = "close")
                 ]
             ]
         )
@@ -98,10 +98,10 @@ async def not_joined(client: Client, message: Message):
     message_text = message.text
     try:
         command, argument = message_text.split()
-        text = text + f" <b>Kalau belum join gak bisa buka file nya kalau sudah join silahkan klik refresh</b>"
+        text = text + f" <b>You have to join the channel first for bot update info and to open the file after that click try again</b>"
     except ValueError:
         pass
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("💌 JOIN CHANNEL 💌", url = client.invitelink)],[InlineKeyboardButton("🔄 REFRESH", url = f"https://t.me/{client.username}?start={argument}")]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🗂 JOIN CHANNEL 🗂", url = client.invitelink)],[InlineKeyboardButton("🔄 Try Again Click here", url = f"https://t.me/{client.username}?start={argument}")]])
     await message.reply(
         text = text,
         reply_markup = reply_markup,
