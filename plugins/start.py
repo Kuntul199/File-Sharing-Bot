@@ -101,7 +101,7 @@ async def not_joined(client: Client, message: Message):
         text = text + f" <b>You have to join the channel first for bot update info and to open the file after that click try again</b>"
     except ValueError:
         pass
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🗂 JOIN CHANNEL 🗂", url = client.invitelink)],[InlineKeyboardButton("🔄 Try Again Click here", url = f"https://t.me/{client.username}?start={argument}")]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🗂 JOIN CHANNEL 🗂", url = client.invitelink)], [InlineKeyboardButton("🔄 Try Again Click here", url = f"https://t.me/{client.username}?start={argument}")]])
     await message.reply(
         text = text,
         reply_markup = reply_markup,
